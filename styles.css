@@ -1,0 +1,215 @@
+/* CSS Reset --------------------------------------------------------------- */
+
+* {
+  padding:0;
+  margin:0;
+  box-sizing:border-box;
+
+  animation:
+    fadein 0.7s ease
+    0s 1 normal;
+}
+
+/* Fonts ------------------------------------------------------------------- */
+
+/* Font is Raleway from https://fonts.google.com/specimen/Raleway */
+@font-face {
+  font-family:Raleway;
+  font-style:normal;
+  font-weight:normal;
+  src:url('./fonts/Raleway-Regular.ttf');
+}
+
+@font-face {
+  font-family:Raleway;
+  font-style:italic;
+  font-weight:normal;
+  src:url('./fonts/Raleway-Italic.ttf');
+}
+
+@font-face {
+  font-family:Raleway;
+  font-style:normal;
+  font-weight:bold;
+  src:url('./fonts/Raleway-Bold.ttf');
+}
+
+@font-face {
+  font-family:Raleway;
+  font-style:italic;
+  font-weight:bold;
+  src:url('./fonts/Raleway-BoldItalic.ttf');
+}
+
+/* Animations -------------------------------------------------------------- */
+
+@keyframes fadein {
+  from {opacity:0;}
+  to   {opacity:1;}
+}
+
+/* Variables --------------------------------------------------------------- */
+
+:root {
+  --cw-font-family:Raleway;
+  --cw-font-size:11pt;
+
+  --cw-text:#333;
+  --cw-bg:#eee;
+  --cw-link:#45a;
+}
+
+@media screen and (prefers-color-scheme:dark) {
+  :root {
+    --cw-text:#dcd7ba;
+    --cw-bg:#1f1f28;
+    --cw-link:#89f;
+  }
+}
+
+@media screen and (width < 8.5in) {
+  :root {
+    --cw-font-size:13pt;
+  }
+}
+
+/* Page styling ------------------------------------------------------------ */
+
+html {
+  font:var(--cw-font-size) var(--cw-font-family);
+  line-height:1.45;
+  color:var(--cw-text);
+  background-color:var(--cw-bg);
+  hyphens:auto;
+}
+
+/* General styling --------------------------------------------------------- */
+
+body {
+  width:8.5in;
+  max-height:11in;
+
+  margin:auto;
+  padding-block:0.25in;
+  padding-inline:0.5in;
+}
+
+@media screen and (width < 8.5in) {
+  body {
+    width:auto;
+    padding:16px;
+  }
+
+  p {
+    margin-block:4px;
+  }
+}
+
+header {
+  text-align:center;
+}
+
+footer {
+  text-align:center;
+  font-size:0.8rem;
+  padding-top:32px;
+  padding-bottom:16px;
+}
+
+@media print {
+  footer {
+    display:none;
+  }
+}
+
+a {
+  color:var(--cw-link);
+  text-decoration:none;
+}
+
+@media print {
+  a {
+    color:var(--cw-text);
+  }
+}
+
+li {
+  margin-left:2ch;
+}
+
+ul.contact-info li {
+  display:inline;
+  margin:0;
+  white-space:nowrap;
+  margin-inline:2ch;
+}
+
+h1, h2 {
+  font-variant:small-caps;
+  font-weight:normal;
+}
+
+h1 {
+  margin-bottom:4px;
+}
+
+h2 {
+  margin-top:4px;
+}
+
+h3 {
+  font-style:italic;
+  font-weight:normal;
+}
+
+section, li {
+  position:relative;
+}
+
+time {
+  position:absolute;
+  top:0;
+  right:0;
+  text-align:right;
+}
+
+@media screen and (width < 8.5in) {
+  time {
+    display:block;
+    font-style:italic;
+    position:static;
+    text-align:left;
+  }
+}
+
+span.amount::before {
+  content:'Amount ';
+}
+
+dt {
+  display:inline;
+  font-style:italic;
+}
+
+dt::after {
+  content:':';
+}
+
+dd {
+  display:inline;
+}
+
+dd::after {
+  content:'.';
+}
+
+dd:has(+ dd)::after {
+  content:',';
+}
+
+@media screen and (width < 8.5in) {
+  dd + dt::before {
+    content:'\A'; /* force newline before dt, but not after */
+    white-space:pre;
+  }
+}
