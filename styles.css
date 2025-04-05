@@ -106,7 +106,7 @@ html {
     padding-top:8px;
   }
 
-  h3, p + p, section > time {
+  h3, p + p, p + time {
     padding-top:4px;
   }
 
@@ -114,6 +114,14 @@ html {
     body {
       width:8.5in;
       margin:auto;
+    }
+
+    h3 ~ time {
+      padding-top:4px;
+    }
+
+    p + time {
+      padding:0;
     }
   }
 }
