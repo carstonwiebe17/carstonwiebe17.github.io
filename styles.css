@@ -4,13 +4,7 @@
   padding:0;
   margin:0;
   box-sizing:border-box;
-
-  animation:
-    fadein 0.7s ease
-    0s 1 normal;
-  /* Prevent page jump by loading initial page with opacity:0; */
-  opacity:0;
-  animation-fill-mode:forwards;
+  animation:fadein 0.7s;
 }
 
 /* Fonts ------------------------------------------------------------------- */
@@ -55,7 +49,6 @@
 
 :root {
   --cw-font-family:Raleway;
-  --cw-font-size:11pt;
 
   --cw-text:#333;
   --cw-bg:#eee;
@@ -73,7 +66,7 @@
 /* Page styling ------------------------------------------------------------ */
 
 html {
-  font:var(--cw-font-size) var(--cw-font-family);
+  font:11pt var(--cw-font-family);
   line-height:1.45;
   color:var(--cw-text);
   background-color:var(--cw-bg);
