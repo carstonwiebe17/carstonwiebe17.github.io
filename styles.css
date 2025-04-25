@@ -73,6 +73,12 @@ html {
   hyphens:auto;
 }
 
+/* Print settings */
+@page {
+  margin:0;
+  size:8.5in 11in;
+}
+
 /* General styling --------------------------------------------------------- */
 
 @media print {
