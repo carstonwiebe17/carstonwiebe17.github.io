@@ -9,33 +9,20 @@
 
 /* Fonts ------------------------------------------------------------------- */
 
-/* Font is Raleway from https://fonts.google.com/specimen/Raleway */
 @font-face {
   font-family:Raleway;
   font-style:normal;
-  font-weight:normal;
-  src:url('./fonts/Raleway-Regular.ttf');
+  font-weight:450;
+  src:url('./fonts/Raleway-VariableFont_wght.ttf');
+  font-display:swap;
 }
 
 @font-face {
   font-family:Raleway;
   font-style:italic;
-  font-weight:normal;
-  src:url('./fonts/Raleway-Italic.ttf');
-}
-
-@font-face {
-  font-family:Raleway;
-  font-style:normal;
-  font-weight:bold;
-  src:url('./fonts/Raleway-Bold.ttf');
-}
-
-@font-face {
-  font-family:Raleway;
-  font-style:italic;
-  font-weight:bold;
-  src:url('./fonts/Raleway-BoldItalic.ttf');
+  font-weight:450;
+  src:url('./fonts/Raleway-Italic-VariableFont_wght.ttf');
+  font-display:swap;
 }
 
 /* Animations -------------------------------------------------------------- */
@@ -48,17 +35,17 @@
 /* Variables --------------------------------------------------------------- */
 
 :root {
-  --cw-font-family:Raleway;
+  --cw-font-family:Raleway, sans-serif;
 
-  --cw-text:#333;
-  --cw-bg:#eee;
+  --cw-text:#000;
+  --cw-bg:#fff;
   --cw-link:#44c;
 }
 
 @media screen and (prefers-color-scheme:dark) {
   :root {
-    --cw-text:#dcd7ba;
-    --cw-bg:#1f1f28;
+    --cw-text:#ccc;
+    --cw-bg:#222;
     --cw-link:#89f;
   }
 }
@@ -66,11 +53,17 @@
 /* Page styling ------------------------------------------------------------ */
 
 html {
-  font:11pt var(--cw-font-family);
+  font:12pt var(--cw-font-family);
   line-height:1.45;
   color:var(--cw-text);
   background-color:var(--cw-bg);
   hyphens:auto;
+}
+
+@media print {
+  html {
+    font-size:11pt;
+  }
 }
 
 /* Print settings */
@@ -132,11 +125,11 @@ header {
 a {
   color:var(--cw-text);
   text-decoration:underline 1px solid var(--cw-link);
+  transition:color, 0.3s;
 }
 
 a:hover {
   color:var(--cw-link);
-  transition:color, 0.3s;
 }
 
 @media print {
@@ -162,6 +155,7 @@ h1, h2 {
 
 h1 {
   padding-bottom:4px;
+  letter-spacing:0.3rem;
 }
 
 h3 {
