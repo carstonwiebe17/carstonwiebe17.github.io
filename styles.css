@@ -187,6 +187,10 @@ time {
   }
 }
 
+span.amount {
+  white-space:nowrap;
+}
+
 span.amount::before {
   content:'Amount ';
 }
