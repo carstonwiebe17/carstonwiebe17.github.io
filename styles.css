@@ -64,6 +64,10 @@ html {
   html {
     font-size:11pt;
   }
+
+  *.noprint {
+    display:none;
+  }
 }
 
 /* Print settings */
