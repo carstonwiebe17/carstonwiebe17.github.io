@@ -94,7 +94,7 @@ body {
   / 2fr 1fr;
 }
 
-@media (width < 8.5in) {
+@media screen and (width < 8.5in) {
   body {
     padding:1rem;
     width:fit-content;
@@ -131,7 +131,7 @@ ul.contact-info li {
   margin-inline:1rem;
 }
 
-@media (width < 8.5in) {
+@media screen and (width < 8.5in) {
   ul.contact-info li {
     display:block;
   }
