@@ -44,7 +44,7 @@ body, h1 * {
 
   --cw-rule-width:0.1rem;
 
-  --cw-text:light-dark(#333, #ddf);
+  --cw-text:light-dark(#333, #cce);
   --cw-bg:light-dark(#fff, #223);
   --cw-highlight:light-dark(#999, #557);
   --cw-link:light-dark(#44c, #89f);
@@ -74,13 +74,19 @@ html {
 
 /* Layout ------------------------------------------------------------------ */
 
+body {
+  @media screen {
+    margin-block:2rem;
+  }
+}
+
 main, aside {
   position:relative;
   width:8.5in;
   height:11in;
   overflow:hidden;
   margin-inline:auto;
-  padding:3rem 8rem 8rem 6rem;
+  padding:4rem 9rem 9rem 6rem;
   @media screen {
     width:fit-content;
     max-width:70ch;
@@ -124,11 +130,12 @@ h2 + h3 {
 }
 
 h2 {
-  font-size:1rem;
+  font-size:1.1rem;
 }
 
 h3 {
   font-size:1.2rem;
+  font-weight:600;
 }
 
 p, li, hr, dl {
@@ -137,15 +144,7 @@ p, li, hr, dl {
 
 header {
   text-align:center;
-  background:var(--cw-highlight);
-  padding:1rem;
   margin-bottom:1rem;
-}
-
-div.header-text {
-  background:var(--cw-bg);
-  padding-block:1rem;
-  border:var(--cw-rule-width) solid var(--cw-text);
 }
 
 ul.contact-info {
