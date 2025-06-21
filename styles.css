@@ -44,10 +44,10 @@ body, h1 * {
 
   --cw-rule-width:0.1rem;
 
-  --cw-text:light-dark(#333, #cce);
-  --cw-bg:light-dark(#fff, #223);
-  --cw-highlight:light-dark(#999, #557);
-  --cw-link:light-dark(#44c, #89f);
+  --cw-text:#333;
+  --cw-bg:#fff;
+  --cw-highlight:#999;
+  --cw-link:#44c;
 }
 
 /* Page setup -------------------------------------------------------------- */
@@ -100,7 +100,6 @@ main, aside {
 
 footer {
   text-align:center;
-  font-variant:small-caps;
   position:absolute;
   bottom:3rem;
   left:50%;
@@ -114,11 +113,15 @@ footer {
 
 h1 {
   line-height:1;
-}
-
-h1, h2 {
+  margin-bottom:1rem;
   font-variant:small-caps;
   letter-spacing:0.05em;
+}
+
+h2, footer {
+  font-variant:small-caps;
+  letter-spacing:0.05em;
+  text-transform:lowercase;
 }
 
 h2, h3 {
@@ -147,17 +150,22 @@ header {
   margin-bottom:1rem;
 }
 
-ul.contact-info {
+ul.inline {
   margin:0;
 }
 
-ul.contact-info li {
+ul.inline li {
   display:inline;
-  margin-inline:1rem;
+  margin-inline:0.75rem;
   white-space:nowrap;
   @media screen and (width < 70ch) {
     display:block;
   }
+}
+
+img.inline {
+  height:1rem;
+  vertical-align:middle;
 }
 
 a {
