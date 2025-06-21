@@ -43,7 +43,7 @@
 
   --cw-text:light-dark(#333, #ddf);
   --cw-bg:light-dark(#fff, #223);
-  --cw-highlight:light-dark(#999, #446);
+  --cw-highlight:light-dark(#999, #557);
   --cw-link:light-dark(#44c, #89f);
 }
 
@@ -185,6 +185,10 @@ p, #experience li {
 
 ul, ol {
   margin-left:2ch;
+}
+
+li::marker {
+  color:var(--cw-highlight);
 }
 
 div.meta {
