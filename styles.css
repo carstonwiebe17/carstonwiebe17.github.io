@@ -60,94 +60,91 @@ html {
   hyphens:auto;
 }
 
-@media print {
-  .noprint {
-    display:none;
-  }
-}
-
-/* Print settings */
-@page {
-  margin:0;
-  size:8.5in 11in;
-}
-
-/* Layout ------------------------------------------------------------------ */
-
-body {
-  @media screen {
-    margin-block:2rem;
-  }
-}
-
-main, aside {
+.page {
   position:relative;
-  width:8.5in;
-  height:11in;
-  overflow:hidden;
-  margin-inline:auto;
-  padding:4rem 9rem 9rem 6rem;
-  @media screen {
-    width:fit-content;
-    max-width:70ch;
-    height:fit-content;
-    margin-block:0;
-    padding:1rem;
-    border-bottom:var(--cw-rule-width) dotted var(--cw-highlight);
-  }
+  display:grid;
+  column-gap:2rem;
 }
 
+main {
+  grid-template:
+    "head" min-content
+    "motive" min-content
+    "edu" min-content
+    "exp" min-content
+    / 1fr;
+}
 
-footer {
-  text-align:center;
-  position:absolute;
-  bottom:3rem;
-  left:50%;
-  transform:translateX(-50%);
-  @media screen {
-    display:none;
-  }
+aside {
+  grid-template:
+    "awards skills" min-content
+    "awards strengths" min-content
+    "other-exp other-exp" min-content
+    / 1fr 1fr;
+}
+
+header {
+  grid-area:head;
+}
+
+#motivation {
+  grid-area:motive;
+}
+
+#education {
+  grid-area:edu;
+}
+
+#experience {
+  grid-area:exp;
+}
+
+#awards {
+  grid-area:awards;
+}
+
+#skills {
+  grid-area:skills;
+}
+
+#clifton-strengths {
+  grid-area:strengths;
+}
+
+#other-experience {
+  grid-area:other-exp;
 }
 
 /* Element styling --------------------------------------------------------- */
 
+h1, h2, h3 {
+  line-height:1.2rem;
+}
+
 h1 {
-  line-height:1;
-  margin-bottom:1rem;
+  font-size:2rem;
+  margin-bottom:2rem;
   font-variant:small-caps;
   letter-spacing:0.05em;
-}
-
-h2, footer {
-  font-variant:small-caps;
-  letter-spacing:0.05em;
-  text-transform:lowercase;
-}
-
-h2, h3 {
-  margin-top:0.5rem;
-}
-
-h2 + h3 {
-  margin-top:0;
 }
 
 h2 {
   font-size:1.1rem;
+  font-variant:small-caps;
+  letter-spacing:0.05em;
+  text-transform:lowercase;
+  border-top:var(--cw-rule-width) solid var(--cw-highlight);
+  margin-block:1rem;
 }
 
 h3 {
   font-size:1.2rem;
   font-weight:600;
+  margin-top:1rem;
 }
 
 p, li, hr, dl {
-  margin-block:0.5rem;
-}
-
-header {
-  text-align:center;
-  margin-bottom:1rem;
+  margin-block:0.7rem;
 }
 
 ul.inline {
@@ -158,9 +155,6 @@ ul.inline li {
   display:inline;
   margin-inline:0.75rem;
   white-space:nowrap;
-  @media screen and (width < 70ch) {
-    display:block;
-  }
 }
 
 img.inline {
@@ -177,20 +171,13 @@ a:hover {
   color:var(--cw-link);
 }
 
-section + section:has(h2) {
-  border-top:var(--cw-rule-width) solid var(--cw-highlight);
-  margin-top:1rem;
-}
-
-@media screen and (width < 70ch) {
-  td + td section:has(h2) {
-    border-top:var(--cw-rule-width) solid var(--cw-highlight);
-    margin-top:1rem;
-  }
-}
-
-p, #experience li {
+p {
   text-align:justify;
+}
+
+header {
+  text-align:center;
+  margin-bottom:1rem;
 }
 
 ul, ol {
@@ -237,23 +224,89 @@ hr {
   margin-inline:auto;
 }
 
-table {
-  display:grid;
-  grid-auto-flow:row;
-  grid-auto-rows:min-content;
+footer {
+  font-variant:small-caps;
+  text-transform:lowercase;
+  letter-spacing:0.05rem;
 }
 
-tr {
-  display:grid;
-  grid-auto-flow:column;
-  column-gap:3rem;
-  grid-auto-columns:1fr;
-  @media screen and (width < 70ch) {
-    grid-auto-flow:row;
-    grid-auto-rows:min-content;
+/* Print ------------------------------------------------------------------- */
+
+@page {
+  margin:0;
+  size:8.5in 11in;
+}
+
+@media print {
+
+  .noprint {
+    display:none;
   }
+
+  .page {
+    width:8.5in;
+    height:11in;
+    overflow:hidden;
+    padding:4rem 9rem 9rem 6rem;
+  }
+
+  footer {
+    text-align:center;
+    position:absolute;
+    bottom:3rem;
+    left:50%;
+    transform:translateX(-50%);
+  }
+
 }
 
-td {
-  width:100%;
+/* Screen ------------------------------------------------------------------ */
+
+@media screen {
+
+  .noscreen {
+    display:none;
+  }
+
+  html {
+    font-size:13pt;
+  }
+
+  body {
+    padding:4rem 1.5rem;
+    width:fit-content;
+    max-width:70ch;
+    height:fit-content;
+    margin-inline:auto;
+  }
+
+  /* Small ----------------------------------------------------------------- */
+
+  @media (width <= 600px) {
+
+    .nosmall {
+      display:none;
+    }
+
+    ul.inline {
+      margin-inline:auto;
+      width:fit-content;
+    }
+
+    ul.inline li {
+      display:block;
+      text-align:left;
+    }
+
+    aside {
+      grid-template:
+        "awards" min-content
+        "other-exp" min-content
+        "skills" min-content
+        "strengths" min-content
+        / 1fr;
+    }
+
+  }
+
 }
