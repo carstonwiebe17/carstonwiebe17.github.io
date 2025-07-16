@@ -53,8 +53,7 @@ body, h1 * {
 /* Page setup -------------------------------------------------------------- */
 
 html {
-  font:11pt var(--cw-font-family);
-  line-height:1.45;
+  font:11pt / 1.45 var(--cw-font-family);
   color:var(--cw-text);
   background:var(--cw-bg);
   hyphens:auto;
@@ -79,7 +78,7 @@ aside {
   grid-template:
     "awards skills" min-content
     "awards strengths" min-content
-    "other-exp other-exp" min-content
+    "other-exp other-exp" 1fr
     / 1fr 1fr;
 }
 
@@ -188,15 +187,13 @@ li::marker {
   color:var(--cw-highlight);
 }
 
-dt {
-  display:inline;
-  font-style:italic;
+dl {
+  padding-right:1rem; /* compensate for the left-shift on <dd /> */
 }
 
-dt:not(:first-child)::before {
-  /* "Half-block" has newline before but not after */
-  content:'\A';
-  white-space:pre;
+dt {
+  display:block;
+  font-style:italic;
 }
 
 dt::after {
@@ -204,6 +201,8 @@ dt::after {
 }
 
 dd {
+  position:relative;
+  left:1rem;
   display:inline;
 }
 
@@ -228,6 +227,15 @@ footer {
   font-variant:small-caps;
   text-transform:lowercase;
   letter-spacing:0.05rem;
+}
+
+strong {
+  font-weight:bold;
+}
+
+.all-caps {
+  font-weight:inherit;
+  letter-spacing:0.05em;
 }
 
 /* Print ------------------------------------------------------------------- */
@@ -275,7 +283,7 @@ footer {
   body {
     padding:4rem 1.5rem;
     width:fit-content;
-    max-width:70ch;
+    max-width:800px;
     height:fit-content;
     margin-inline:auto;
   }
