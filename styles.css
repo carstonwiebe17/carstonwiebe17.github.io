@@ -191,11 +191,6 @@ dl {
   padding-right:1rem; /* compensate for the left-shift on <dd /> */
 }
 
-dt {
-  display:block;
-  font-style:italic;
-}
-
 dt::after {
   content:': ';
 }
