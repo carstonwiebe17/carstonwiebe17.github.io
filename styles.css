@@ -138,12 +138,12 @@ h2 {
 
 h3 {
   font-size:1.2rem;
-  font-weight:600;
+  font-weight:bold;
   margin-top:1rem;
 }
 
 p, li, hr, dl {
-  margin-block:0.7rem;
+  margin-block:0.5rem;
 }
 
 ul.inline {
@@ -187,8 +187,9 @@ li::marker {
   color:var(--cw-highlight);
 }
 
-dl {
-  padding-right:1rem; /* compensate for the left-shift on <dd /> */
+dt {
+  font-style:italic;
+  display:inline;
 }
 
 dt::after {
@@ -196,8 +197,6 @@ dt::after {
 }
 
 dd {
-  position:relative;
-  left:1rem;
   display:inline;
 }
 
@@ -207,6 +206,8 @@ dd::after {
 
 dd:has(+ dt)::after, dd:last-child::after {
   content:'';
+  display:block;
+  height:0.5rem;
 }
 
 hr {
