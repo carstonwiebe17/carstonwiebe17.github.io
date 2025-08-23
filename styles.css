@@ -133,7 +133,8 @@ h2 {
   letter-spacing:0.05em;
   text-transform:lowercase;
   border-top:var(--cw-rule-width) solid var(--cw-highlight);
-  margin-block:1rem;
+  margin-top:0.3rem;
+  margin-bottom:1rem;
 }
 
 h3 {
@@ -142,8 +143,12 @@ h3 {
   margin-top:1rem;
 }
 
+h3 + h3 {
+  margin-top:0.3rem;
+}
+
 p, li, hr, dl {
-  margin-block:0.5rem;
+  margin-block:0.4rem;
 }
 
 ul.inline {
@@ -232,6 +237,10 @@ strong {
 .all-caps {
   font-weight:inherit;
   letter-spacing:0.05em;
+}
+
+div.meta {
+  margin-top:0.2rem;
 }
 
 /* Print ------------------------------------------------------------------- */
