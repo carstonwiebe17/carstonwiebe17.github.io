@@ -70,15 +70,16 @@ main {
     "head" min-content
     "motive" min-content
     "edu" min-content
+    "skills" min-content
     "exp" min-content
     / 1fr;
 }
 
 aside {
   grid-template:
-    "awards skills" min-content
-    "awards strengths" min-content
-    "other-exp other-exp" 1fr
+    "other-exp other-exp" min-content
+    "awards classes" min-content
+    "awards strengths" 1fr
     / 1fr 1fr;
 }
 
@@ -106,6 +107,10 @@ header {
   grid-area:skills;
 }
 
+#classes-and-clubs {
+  grid-area:classes;
+}
+
 #clifton-strengths {
   grid-area:strengths;
 }
@@ -117,12 +122,12 @@ header {
 /* Element styling --------------------------------------------------------- */
 
 h1, h2, h3 {
-  line-height:1.2rem;
+  line-height:1.2;
 }
 
 h1 {
   font-size:2rem;
-  margin-bottom:2rem;
+  margin-bottom:1rem;
   font-variant:small-caps;
   letter-spacing:0.05em;
 }
@@ -134,21 +139,25 @@ h2 {
   text-transform:lowercase;
   border-top:var(--cw-rule-width) solid var(--cw-highlight);
   margin-top:0.7rem;
-  margin-bottom:1rem;
+  margin-bottom:0.7rem;
 }
 
 h3 {
   font-size:1.2rem;
   font-weight:bold;
-  margin-top:1rem;
+  margin-top:0.7rem;
 }
 
 h3 + h3 {
-  margin-top:0.3rem;
+  margin-top:0;
 }
 
 p, li, hr, dl {
   margin-block:0.4rem;
+}
+
+:is(p, li, hr, dl):last-child {
+  margin-bottom:0;
 }
 
 ul.inline {
@@ -209,7 +218,11 @@ dd::after {
   content:',';
 }
 
-dd:has(+ dt)::after, dd:last-child::after {
+dd:last-child:after {
+  content:'';
+}
+
+dd:has(+ dt)::after {
   content:'';
   display:block;
   height:0.5rem;
@@ -313,9 +326,9 @@ div.meta {
 
     aside {
       grid-template:
-        "awards" min-content
         "other-exp" min-content
-        "skills" min-content
+        "awards" min-content
+        "classes" min-content
         "strengths" min-content
         / 1fr;
     }
