@@ -289,9 +289,12 @@ div.meta {
 /* Screen ------------------------------------------------------------------ */
 
 @media screen {
-
   .noscreen {
     display:none;
+  }
+
+  h2 {
+    margin-top:2rem;
   }
 
   html {
@@ -309,7 +312,6 @@ div.meta {
   /* Small ----------------------------------------------------------------- */
 
   @media (width <= 600px) {
-
     .nosmall {
       display:none;
     }
